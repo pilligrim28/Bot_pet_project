@@ -6,4 +6,9 @@ main = ReplyKeyboardMarkup(keyboard=[[KeyboardButton(text='Каталог')],
                                       [KeyboardButton(text='Контакты'),
                                        KeyboardButton(text='О нас')]],
                                        resize_keyboard=True,
-                            
+                                      input_field_placeholder='Выберите пункт меню' )
+
+
+catalog = InlineKeyboardMarkup(inline_keyboard=[[InlineKeyboardButton(text='Футболки')],
+                                                [InlineKeyboardButton('Кросовки')],
+                                                [InlineKeyboardButton(text='Кепки')]])
