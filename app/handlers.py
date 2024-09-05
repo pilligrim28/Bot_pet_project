@@ -4,6 +4,7 @@ from aiogram.types import Message, CallbackQuery
 
 import app.keyboards as kb
 import app.states as st
+import app.database.requests as rq
 
 router = Router()
 
@@ -11,8 +12,10 @@ router = Router()
 
 @router.message(CommandStart())
 async def cmd_start(message: Message):
-    await message.answer('Привет', reply_markup=kb.main)
-    await message.reply('Как дела?')
+    await rq.set_user(message.from_user.id)
+    await message.answer('Добро пожаловать в консалтинговое агенство "Делоникс"', reply_markup=kb.main)
+
+
 
 @router.message(Command('help'))
 async def cmd_help(message: Message):
